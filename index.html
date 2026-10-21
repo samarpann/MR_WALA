@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MR. WALA | Vikas Nagar, Uttam Nagar | Certified Pre-Owned iPhones & Smartphones</title>
+  
+  <meta name="description" content="Official website for Mr. Wala (Mr. Wala Private Limited), Vikas Nagar, Uttam Nagar, New Delhi. Certified pre-owned iPhones, flagship Android phones, trade-ins, and 30-minute repairs.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Light Theme CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-700 antialiased selection:bg-slate-900 selection:text-white">
+
+  <!-- ================= TOP NOTICE TICKER ================= -->
+  <aside aria-label="Announcement" class="bg-slate-900 text-white text-xs py-2 overflow-hidden border-b border-slate-800">
+    <div class="ticker-track whitespace-nowrap flex items-center gap-10 font-medium">
+      <span>📍 <strong>Store Location:</strong> Shop No. 5, Main Balaji Chowk, Vikas Nagar, Uttam Nagar, West Delhi</span>
+      <span class="text-slate-500">•</span>
+      <span>⏰ <strong>Store Hours:</strong> Open All 7 Days (10:00 AM – 10:00 PM)</span>
+      <span class="text-slate-500">•</span>
+      <span>🛡️ <strong>Guarantee:</strong> 32-Point Quality Diagnostic + 6 Months Store Warranty</span>
+      <span class="text-slate-500">•</span>
+      <span>📞 <strong>Direct Helpline:</strong> +91 95403 88464 (Umesh Kanojiya)</span>
+      <span class="text-slate-500">•</span>
+      <span>🔄 <strong>Trade-In Bonus:</strong> Extra 8% Value on iPhone Upgrades</span>
+      <span class="text-slate-500">•</span>
+      <span>📍 <strong>Store Location:</strong> Shop No. 5, Main Balaji Chowk, Vikas Nagar, Uttam Nagar, West Delhi</span>
+    </div>
+  </aside>
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white shadow-sm">
+          <i class="fa-solid fa-mobile-screen-button text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-xl font-bold tracking-tight text-slate-900 heading-font">MR. WALA</span>
+            <span class="text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 px-1.5 py-0.2 rounded-full flex items-center gap-0.5">
+              <i class="fa-solid fa-circle-check text-[9px]"></i> Verified
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium -mt-0.5">Vikas Nagar, Uttam Nagar</p>
+        </div>
+      </a>
+
+      <!-- 1-Page Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-semibold text-slate-600">
+        <a href="#catalog" class="hover:text-slate-900 transition">Phone Catalog</a>
+        <a href="#trade-in" class="hover:text-slate-900 transition">Sell / Exchange</a>
+        <a href="#repairs" class="hover:text-slate-900 transition">Repair Desk</a>
+        <a href="#reviews" class="hover:text-slate-900 transition">Customer Reviews</a>
+        <a href="#store" class="hover:text-slate-900 transition">Store & Directions</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Inquiry List Trigger -->
+        <button onclick="openInquiryModal()" class="relative p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition" title="Saved Phones">
+          <i class="fa-solid fa-list-check text-sm"></i>
+          <span id="inquiry-badge" class="absolute -top-1 -right-1 bg-slate-900 text-white text-[9px] font-bold w-4 h-4 rounded-full items-center justify-center hidden">0</span>
+        </button>
+
+        <!-- Call Store -->
+        <a href="tel:+919540388464" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-lg transition border border-slate-200">
+          <i class="fa-solid fa-phone text-slate-500"></i>
+          <span>95403 88464</span>
+        </a>
+
+        <!-- WhatsApp Primary Button -->
+        <a href="https://wa.me/919540388464?text=Hello%20Mr.%20Wala!%20I%20am%20interested%20in%20checking%20today's%20available%20phone%20stock." 
+           target="_blank" 
+           class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Chat on WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Text Column -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold mb-5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            A Unit of Mr. Wala Private Limited (CIN: U47594DC2026PTC472736)
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-4">
+            Certified Pre-Owned iPhones & Flagships in Vikas Nagar
+          </h1>
+
+          <p class="text-slate-600 text-base sm:text-lg mb-8 leading-relaxed max-w-2xl">
+            Buy thoroughly tested iPhones and premium Android smartphones at up to 60% below showroom MRP. Every device is backed by our <strong>32-point inspection report</strong>, <strong>6 months store warranty</strong>, and <strong>7 days replacement guarantee</strong>.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap items-center gap-3 mb-10">
+            <a href="#catalog" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold px-6 py-3 rounded-lg transition shadow-sm">
+              <i class="fa-solid fa-mobile-screen"></i> Browse Available Stock
+            </a>
+            <a href="#trade-in" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold px-5 py-3 rounded-lg border border-slate-200 transition">
+              <i class="fa-solid fa-calculator text-slate-500"></i> Check Trade-in Value
+            </a>
+          </div>
+
+          <!-- Trust Badges Bar -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 max-w-lg">
+            <div>
+              <div class="text-2xl font-bold text-slate-900 font-mono">10,000+</div>
+              <div class="text-xs text-slate-500 mt-0.5">Happy Buyers</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-slate-900 font-mono">4.9 ★</div>
+              <div class="text-xs text-slate-500 mt-0.5">Customer Rating</div>
+            </div>
+            <div>
+              <div class="text-2xl font-bold text-slate-900 font-mono">32-Point</div>
+              <div class="text-xs text-slate-500 mt-0.5">Diagnostic Tested</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Featured Hero Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold bg-slate-900 text-white px-2.5 py-1 rounded-md">
+                Featured Spotlight
+              </span>
+              <span class="text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-md flex items-center gap-1">
+                <i class="fa-solid fa-battery-full text-[11px]"></i> 99% Battery Health
+              </span>
+            </div>
+
+            <div class="h-60 bg-white rounded-xl p-4 flex items-center justify-center mb-4 border border-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=700&q=80" 
+                alt="iPhone 15 Pro Max" 
+                class="max-h-full object-contain mix-blend-multiply" 
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80';"
+              />
+            </div>
+
+            <div class="mb-4">
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="text-lg font-bold text-slate-900">Apple iPhone 15 Pro Max</h3>
+                <span class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">46% OFF</span>
+              </div>
+              <p class="text-xs text-slate-500 mb-2">256 GB • Natural Titanium • Grade A+ Flawless</p>
+              
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-extrabold text-slate-900 font-mono">₹86,999</span>
+                <span class="text-xs text-slate-400 line-through">MRP ₹1,59,900</span>
+                <span class="text-xs text-slate-500 ml-auto">Save ₹72,901</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/919540388464?text=Hello%20Mr.%20Wala!%20I%20am%20interested%20in%20the%20iPhone%2015%20Pro%20Max%20(256GB%20Natural%20Titanium)%20at%20Rs%2086%2C999." 
+               target="_blank" 
+               class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-lg text-xs flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i> Inquire / Reserve This Unit
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST GUARANTEE BAR ================= -->
+  <section class="py-8 bg-slate-100 border-b border-slate-200 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-800 text-base shadow-2xs">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900">32-Point Check</h4>
+            <p class="text-slate-500 text-[11px]">Hardware & software verified</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-800 text-base shadow-2xs">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900">6 Months Warranty</h4>
+            <p class="text-slate-500 text-[11px]">Store backed invoice coverage</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-800 text-base shadow-2xs">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900">7 Days Replacement</h4>
+            <p class="text-slate-500 text-[11px]">Hassle-free swap policy</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-800 text-base shadow-2xs">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900">Fair Spot Payment</h4>
+            <p class="text-slate-500 text-[11px]">Instant UPI for your old phone</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INVENTORY CATALOG SECTION ================= -->
+  <section id="catalog" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">Live Stock At Vikas Nagar Store</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Current Available Inventory</h2>
+          <p class="text-xs text-slate-500 mt-1">Inspected devices ready for walk-in testing or fast doorstep delivery.</p>
+        </div>
+        <span id="stock-count-label" class="text-xs font-medium text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-2xs">
+          Loading devices...
+        </span>
+      </div>
+
+      <!-- Filter Controls Bar -->
+      <div class="bg-white rounded-xl p-3 border border-slate-200 shadow-2xs mb-8 flex flex-col md:flex-row items-center justify-between gap-3">
+        <!-- Category Tabs -->
+        <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
+          <button class="category-tab active px-3.5 py-2 rounded-lg text-xs font-semibold border border-transparent transition" data-category="all">
+            All Devices
+          </button>
+          <button class="category-tab px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200 transition" data-category="iphone">
+            iPhones
+          </button>
+          <button class="category-tab px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200 transition" data-category="android">
+            Samsung & Android
+          </button>
+          <button class="category-tab px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200 transition" data-category="accessories">
+            TVs & Accessories
+          </button>
+        </div>
+
+        <!-- Search & Sort Controls -->
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <div class="relative flex-1 md:w-56">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="search-box" placeholder="Search iPhone 14, 128GB..." class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-slate-400 transition">
+          </div>
+
+          <select id="sort-select" class="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-400">
+            <option value="popular">Most Popular</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="discount">Highest Discount</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Catalog Cards Grid -->
+      <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Rendered by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TRADE-IN / SELL PHONE SECTION ================= -->
+  <section id="trade-in" class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-5">
+          <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">Instant Trade-in Valuation</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
+            Sell or Exchange Your Old Smartphone
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+            Get an instant cash valuation on your pre-owned smartphone. Bring it to our Vikas Nagar shop for a 10-minute physical test and walk away with instant payment via UPI or cash, plus an extra <strong>8% bonus</strong> if you exchange it for an iPhone.
+          </p>
+
+          <ul class="space-y-2.5 text-xs text-slate-600 mb-6">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-600"></i> Instant spot transfer directly to your bank account
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-600"></i> 100% secure data wipe before device handover
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-600"></i> Transparent appraisal with zero hidden deduction
+            </li>
+          </ul>
+
+          <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700">
+            <strong>Pro Tip:</strong> Bringing original bill and box can increase your device value by up to ₹2,000!
+          </div>
+        </div>
+
+        <!-- Calculator Card -->
+        <div class="lg:col-span-7">
+          <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200">
+            <h3 class="text-base font-bold text-slate-900 mb-5 flex items-center gap-2">
+              <i class="fa-solid fa-calculator text-slate-500"></i>
+              Calculate Your Trade-In Value
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              <div>
+                <label class="text-xs text-slate-600 block mb-1 font-medium">Select Brand</label>
+                <select id="calc-brand" class="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-slate-400">
+                  <option value="">-- Choose Brand --</option>
+                  <option value="apple">Apple</option>
+                  <option value="samsung">Samsung</option>
+                  <option value="oneplus">OnePlus</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="text-xs text-slate-600 block mb-1 font-medium">Select Model</label>
+                <select id="calc-model" disabled class="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-slate-400 disabled:bg-slate-100 disabled:opacity-50">
+                  <option value="">-- Choose Brand First --</option>
+                </select>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label class="text-xs text-slate-600 block mb-1 font-medium">Device Condition</label>
+                <select id="calc-condition" class="w-full bg-white border border-slate-200 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-slate-400">
+                  <option value="flawless">Flawless / Pristine (No scratches, all functions 100%)</option>
+                  <option value="good">Good / Minor Wear (Small hairline scratches, working)</option>
+                  <option value="cracked">Screen or Back Glass Cracked (Display working)</option>
+                  <option value="faulty">Hardware Issue (Camera / Face ID / Speaker not working)</option>
+                </select>
+              </div>
+            </div>
+
+            <button id="calc-btn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 px-4 rounded-lg text-xs transition mb-4">
+              Get Valuation Estimate
+            </button>
+
+            <!-- Trade-In Result Display -->
+            <div id="trade-result" class="hidden p-5 rounded-xl bg-white border border-slate-200 text-center">
+              <div id="trade-value-text" class="mb-4"></div>
+              <a id="trade-wa-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-5 rounded-lg transition shadow-sm">
+                <i class="fa-brands fa-whatsapp text-sm"></i> Lock Valuation on WhatsApp
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= EXPRESS REPAIR SECTION ================= -->
+  <section id="repairs" class="py-16 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-xl mb-10">
+        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">In-Store Express Service</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">30-Minute Mobile Repair Desk</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1">Get authentic display replacements, battery boosts, and laser back glass repairs done in front of your eyes at our Vikas Nagar store.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Repair Features Grid -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white p-5 rounded-xl border border-slate-200">
+            <div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm mb-3">
+              <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900 mb-1">Display & Glass Repair</h4>
+            <p class="text-xs text-slate-500">True Tone & 120Hz display calibration with 3 months replacement warranty.</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-slate-200">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm mb-3">
+              <i class="fa-solid fa-battery-full"></i>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900 mb-1">Original Battery Boost</h4>
+            <p class="text-xs text-slate-500">High-capacity OEM cells that restore 100% battery health indicator.</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-slate-200">
+            <div class="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center text-sm mb-3">
+              <i class="fa-solid fa-camera"></i>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900 mb-1">Camera & Lens Glass</h4>
+            <p class="text-xs text-slate-500">Restore crisp focusing and clear photos with genuine sapphire lens glass.</p>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-slate-200">
+            <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center text-sm mb-3">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h4 class="text-sm font-bold text-slate-900 mb-1">30-Min Walk-in Turnaround</h4>
+            <p class="text-xs text-slate-500">Transparent repairs performed directly in front of you. Complete data safety.</p>
+          </div>
+        </div>
+
+        <!-- Repair Estimator Box -->
+        <div class="lg:col-span-5">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
+            <h3 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <i class="fa-solid fa-wrench text-slate-500"></i> Get Repair Price Estimate
+            </h3>
+
+            <div class="space-y-3.5 mb-4">
+              <div>
+                <label class="text-xs text-slate-600 block mb-1">Select Phone Type</label>
+                <select id="repair-brand" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-slate-400">
+                  <option value="apple">Apple iPhone</option>
+                  <option value="android">Samsung / OnePlus / Android</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="text-xs text-slate-600 block mb-1">Select Repair Required</label>
+                <select id="repair-issue" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-800 focus:outline-none focus:border-slate-400">
+                  <option value="screen">Display / Touch Replacement</option>
+                  <option value="battery">Battery Health Replacement</option>
+                  <option value="backglass">Back Glass Cracked</option>
+                  <option value="camera">Camera Lens / Sensor</option>
+                </select>
+              </div>
+            </div>
+
+            <button id="repair-calc-btn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 px-4 rounded-lg text-xs transition mb-3">
+              Calculate Estimate
+            </button>
+
+            <div id="repair-result" class="hidden p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
+              <div id="repair-cost-text" class="mb-3"></div>
+              <a id="repair-wa-link" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2 px-3 rounded-lg transition inline-flex items-center justify-center gap-1.5">
+                <i class="fa-brands fa-whatsapp"></i> Book Vikas Nagar Repair Slot
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CUSTOMER REVIEWS ================= -->
+  <section id="reviews" class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">Verified Experiences</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">What Customers Say About Mr. Wala</h2>
+          <p class="text-xs text-slate-500 mt-1">Real buyer feedback from Vikas Nagar, Uttam Nagar, and West Delhi.</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="https://www.instagram.com/mr.wala_mobile/" target="_blank" class="text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition border border-slate-200 flex items-center gap-1.5">
+            <i class="fa-brands fa-instagram text-pink-600"></i> @mr.wala_mobile
+          </a>
+          <a href="https://www.youtube.com/@MR.WALA_MOBILE" target="_blank" class="text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition border border-slate-200 flex items-center gap-1.5">
+            <i class="fa-brands fa-youtube text-red-600"></i> @MR.WALA_MOBILE
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+          <div class="flex items-center gap-1 text-amber-500 text-xs mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            "Bought an iPhone 14 with 95% battery health from Mr. Wala. The price was ₹15,000 cheaper than Janakpuri market. Checked on 3uTools and all parts are original. Best store in Vikas Nagar!"
+          </p>
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs">
+              RK
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-slate-900">Rohit Kumar</h5>
+              <span class="text-[10px] text-slate-500">Vikas Nagar, Uttam Nagar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+          <div class="flex items-center gap-1 text-amber-500 text-xs mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            "Exchanged my old OnePlus for an iPhone 13. The valuation was very fair and took barely 10 minutes. Umesh bhai gave me store warranty and invoice on the spot. Very smooth experience."
+          </p>
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs">
+              AS
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-slate-900">Aman Sharma</h5>
+              <span class="text-[10px] text-slate-500">Dwarka Sector 14</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+          <div class="flex items-center gap-1 text-amber-500 text-xs mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            "Ordered an open-box Galaxy S23 Ultra delivered to my office in West Delhi. Received with full original box, cable, and GST bill. Highly recommended for genuine phones."
+          </p>
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs">
+              PS
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-slate-900">Pooja Singh</h5>
+              <span class="text-[10px] text-slate-500">Janakpuri West</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= STORE LOCATION & VISIT US ================= -->
+  <section id="store" class="py-16 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-2xs">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Address & Store Info -->
+          <div class="lg:col-span-6">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">Visit The Store</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">Visit Us in Vikas Nagar</h2>
+            <p class="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+              We encourage you to visit our shop, hold the device, test 3uTools diagnostic score, and check camera and battery health in person before making any payment.
+            </p>
+
+            <div class="space-y-3.5 text-xs text-slate-700 mb-6">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-slate-500 text-sm mt-0.5"></i>
+                <div>
+                  <strong class="text-slate-900 block text-xs">Store Address:</strong>
+                  Shop No. 5, Main Balaji Chowk / Balaji Road, <br>
+                  (Near Matke Wali Gali, Gali No. 11), Vikas Nagar, <br>
+                  Uttam Nagar, West Delhi, New Delhi – 110059.
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-clock text-slate-500 text-sm"></i>
+                <div>
+                  <strong class="text-slate-900 block text-xs">Store Hours:</strong>
+                  Monday to Sunday: <strong>10:00 AM – 10:00 PM</strong> (Open All 7 Days)
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-slate-500 text-sm"></i>
+                <div>
+                  <strong class="text-slate-900 block text-xs">Contact & WhatsApp:</strong>
+                  <a href="tel:+919540388464" class="text-blue-600 font-semibold hover:underline">+91 95403 88464</a> (Umesh Kanojiya)
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-building text-slate-500 text-sm"></i>
+                <div>
+                  <strong class="text-slate-900 block text-xs">Registered Entity:</strong>
+                  Mr. Wala Private Limited • CIN: <span class="font-mono text-slate-600">U47594DC2026PTC472736</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="https://maps.google.com/?q=Shop+No+5+Main+Balaji+Chowk+Vikas+Nagar+Uttam+Nagar+Delhi+110059" target="_blank" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-2xs">
+                <i class="fa-solid fa-map-location-dot"></i> Get Directions on Google Maps
+              </a>
+              <a href="https://wa.me/919540388464?text=Hello%20Mr.%20Wala!%20I%20am%20planning%20to%20visit%20your%20Vikas%20Nagar%20store%20today." target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-2xs">
+                <i class="fa-brands fa-whatsapp text-sm"></i> Notify Store Visit
+              </a>
+            </div>
+          </div>
+
+          <!-- Embedded Map -->
+          <div class="lg:col-span-6">
+            <div class="rounded-xl overflow-hidden border border-slate-200 h-72 bg-slate-100 relative">
+              <iframe 
+                title="Mr. Wala Vikas Nagar Location"
+                class="w-full h-full border-0"
+                src="https://maps.google.com/maps?q=Main+Balaji+Chowk+Vikas+Nagar+Uttam+Nagar+Delhi+110059&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                loading="lazy">
+              </iframe>
+              <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-2.5 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+                <div>
+                  <strong class="text-slate-900 block text-xs">Mr. Wala Mobile Store</strong>
+                  <span class="text-[11px] text-slate-500">Main Balaji Chowk, Vikas Nagar</span>
+                </div>
+                <span class="text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded">
+                  Open Now (Till 10 PM)
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white border-t border-slate-200 py-10 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <span class="text-base font-bold text-slate-900 heading-font">MR. WALA</span>
+          <span class="text-[10px] text-slate-400">|</span>
+          <span class="text-xs text-slate-500">A Unit of Mr. Wala Private Limited</span>
+        </div>
+
+        <div class="flex items-center gap-5 font-medium">
+          <a href="#catalog" class="hover:text-slate-900 transition">Catalog</a>
+          <a href="#trade-in" class="hover:text-slate-900 transition">Trade-In</a>
+          <a href="#repairs" class="hover:text-slate-900 transition">Repairs</a>
+          <a href="#store" class="hover:text-slate-900 transition">Directions</a>
+          <a href="https://wa.me/919540388464" target="_blank" class="text-emerald-700 hover:text-emerald-800 transition">WhatsApp Support</a>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
+        <p>© 2026 Mr. Wala Private Limited (CIN: U47594DC2026PTC472736). All rights reserved.</p>
+        <p class="text-slate-400">Shop No. 5, Main Balaji Chowk, Vikas Nagar, Uttam Nagar, New Delhi – 110059</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING WHATSAPP PILL ================= -->
+  <div class="fixed bottom-5 right-5 z-50">
+    <a href="https://wa.me/919540388464?text=Hello%20Mr.%20Wala!%20I%20have%20a%20question%20about%20your%20phone%20inventory." 
+       target="_blank" 
+       class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-4 py-2.5 rounded-full shadow-lg transition"
+       title="Chat with Mr. Wala">
+      <i class="fa-brands fa-whatsapp text-base"></i>
+      <span>Chat with Store</span>
+    </a>
+  </div>
+
+  <!-- ================= PRODUCT QUICK VIEW MODAL ================= -->
+  <div id="product-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+    <div class="modal-content bg-white w-full max-w-2xl rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-sm transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ================= INQUIRY LIST MODAL ================= -->
+  <div id="inquiry-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+    <div class="modal-content bg-white w-full max-w-md rounded-2xl p-6 border border-slate-200 shadow-xl relative">
+      <button onclick="closeInquiryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-sm transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="flex items-center gap-2 mb-3">
+        <i class="fa-solid fa-list-check text-slate-700"></i>
+        <h3 class="text-base font-bold text-slate-900">Saved Inquiry List</h3>
+      </div>
+      <p class="text-xs text-slate-500 mb-4">You can send this saved list directly to Mr. Wala on WhatsApp to reserve before visiting.</p>
+
+      <div id="inquiry-list" class="space-y-2 max-h-56 overflow-y-auto mb-4 pr-1"></div>
+
+      <div class="pt-3 border-t border-slate-100 mb-4 flex items-baseline justify-between">
+        <span class="text-xs text-slate-500">Total:</span>
+        <span id="inquiry-total" class="text-lg font-bold text-slate-900 font-mono">₹0</span>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <a id="inquiry-wa-btn" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-lg text-center text-xs transition flex items-center justify-center gap-1.5 shadow-2xs">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Send List to Store via WhatsApp
+        </a>
+        <button onclick="clearAllInquiry()" class="text-xs text-slate-400 hover:text-slate-600 py-1 transition text-center">
+          Clear List
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+    <span id="toast-text">Notification</span>
+  </div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
